@@ -20,8 +20,7 @@ def writefile(filename2,lines,filename1):
             exit(1)
     try:
         with open(f'{filename2}','w',encoding='utf-8')as f:
-            for i,j in enumerate(lines,1):
-                f.write(f'{i}:{j}')    
+                f.writelines(f'{i}:{j}' for i,j in enumerate(lines,1))    
     except PermissionError:
         print("没有权限写入")
         exit(1)
